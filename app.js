@@ -66,5 +66,5 @@ document.getElementById('search-input').addEventListener('keypress', function (e
 
 
 function navigateToWeather(city) {
-    window.location.href = `city/index.html?city=${encodeURIComponent(city)}`;
+    window.location.href = `city/city.html?city=${encodeURIComponent(city)}`;
 }
