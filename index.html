@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Application</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-12 col-md-4">
+                <div class="responsive-hr-container">
+                    <hr class="bg-primary opacity-100 responsive-hr border-0">
+                    <h3 class="text-start mb-4 responsive-h2">
+                        <span class="text-light fw-bold">Weather</span>
+                        <span class="text-primary fw-bold"> Forecast</span>
+                    </h3>
+                </div>
+            </div>
+        </div>
+
+        <!-- Search Bar Section -->
+        <div class="row justify-content-center mb-5">
+            <div class="col-12 col-md-6">
+                <!-- Added IDs to the input and button -->
+                <div class="d-flex">
+                    <input id="search-input" class="form-control me-2" type="search" placeholder="Search for a city"
+                        aria-label="Search">
+                    <button id="search-button" class="btn btn-primary" type="button">Search</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Weather Cards Carousel -->
+        <div id="weatherCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <!-- First set of 3 cards -->
+                <div class="carousel-item active">
+                    <div class="row justify-content-center p-lg-4 p-md-5 p-3">
+
+                        <!-- Colombo Card -->
+                        <div class="col-sm-12 col-md-6 col-lg-3 mb-4 mt-5">
+                            <div class="bg-primary text-white p-2 text-center mb-2">
+                                <div class="card-body" onclick="navigateToWeather('Colombo')">
+                                    <h4 class="card-title text-light fw-bold">Colombo</h4>
+                                </div>
+                            </div>
+
+                            <div id="colombo-card" class="bg-light text-white p-2 text-center mb-2 h-100" onclick="navigateToWeather('Colombo')">
+                                <!-- Content will be updated here dynamically -->
+                            </div>
+                        </div>
+
+                        <!-- Moscow Card -->
+                        <div class="col-sm-12 col-md-6 col-lg-3 mb-4 mt-5">
+                            <div class="bg-primary text-white p-2 text-center mb-2">
+                                <div class="card-body" onclick="navigateToWeather('Moscow')">
+                                    <h4 class="card-title text-light fw-bold">Moscow</h4>
+                                </div>
+                            </div>
+                            <div id="moscow-card" class="bg-light text-white p-2 text-center mb-2 h-100" onclick="navigateToWeather('Moscow')">
+                                <!-- Content will be updated here dynamically -->
+                            </div>
+                        </div>
+
+                        <!-- Paris Card -->
+                        <div class="col-sm-12 col-md-6 col-lg-3 mb-4 mt-5">
+                            <div class="bg-primary text-white p-2 text-center mb-2">
+                                <div class="card-body" onclick="navigateToWeather('Paris')">
+                                    <h4 class="card-title text-light fw-bold">Paris</h4>
+                                </div>
+                            </div>
+                            <div id="paris-card" class="bg-light text-white p-2 text-center mb-2 h-100" onclick="navigateToWeather('Paris')">
+                                <!-- Content will be updated here dynamically -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Second set of 3 cards -->
+                <div class="carousel-item">
+                    <div class="row justify-content-center p-lg-4 p-md-5 p-3">
+                        <!-- New York Card -->
+                        <div class="col-sm-12 col-md-6 col-lg-3 mb-4 mt-5">
+                            <div class="bg-primary text-white p-2 text-center mb-2">
+                                <div class="card-body" onclick="navigateToWeather('New York')">
+                                    <h4 class="card-title text-light fw-bold">New York</h4>
+                                </div>
+                            </div>
+                            <div id="newyork-card" class="bg-light text-white p-2 text-center mb-2 h-100" onclick="navigateToWeather('New York')">
+                                <!-- Content will be updated here dynamically -->
+                            </div>
+                        </div>
+
+                        <!-- Tokyo Card -->
+                        <div class="col-sm-12 col-md-6 col-lg-3 mb-4 mt-5">
+                            <div class="bg-primary text-white p-2 text-center mb-2">
+                                <div class="card-body" onclick="navigateToWeather('Tokyo')">
+                                    <h4 class="card-title text-light fw-bold">Tokyo</h4>
+                                </div>
+                            </div>
+                            <div id="tokyo-card" class="bg-light text-white p-2 text-center mb-2 h-100" onclick="navigateToWeather('Tokyo')">
+                                <!-- Content will be updated here dynamically -->
+                            </div>
+                        </div>
+
+                        <!-- Sydney Card -->
+                        <div class="col-sm-12 col-md-6 col-lg-3 mb-4 mt-5">
+                            <div class="bg-primary text-white p-2 text-center mb-2">
+                                <div class="card-body" onclick="navigateToWeather('Sydney')">
+                                    <h4 class="card-title text-light fw-bold">Sydney</h4>
+                                </div>
+                            </div>
+                            <div id="sydney-card" class="bg-light text-white p-2 text-center mb-2 h-100" onclick="navigateToWeather('Sydney')">
+                                <!-- Content will be updated here dynamically -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Carousel controls -->
+            <button class="carousel-control-prev" type="button" data-bs-target="#weatherCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#weatherCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+    <script src="app.js"></script>
+    <script>
+        function navigateToWeather(city) {
+            window.location.href = `city/index.html?city=${encodeURIComponent(city)}`;
+        }
+    </script>
+</body>
+
+</html>

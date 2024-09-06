@@ -1,0 +1,42 @@
+body {
+    background-image: url(img/image.png);
+    background-size: cover;
+    background-position: center;
+    font-family: Arial, sans-serif;
+    color: white; /* Adjust text color for better contrast */
+}
+
+
+.responsive-hr-container {
+    display: inline-block; /* Ensures both elements are inline */
+}
+
+.responsive-hr {
+    display: block; /* Display hr as block element */
+    width: calc(111% - 25px); /* Set width to match the H1 width */
+    height: 10px;
+    margin-bottom: 0; /* Remove default margin */
+    margin-top: 0; /* Remove default margin */
+}
+
+.responsive-h1 {
+    display: block; /* Display h1 as block element */
+    margin-top: 0; /* Remove default margin */
+}
+
+/* Responsive Design Tweaks */
+@media (max-width: 768px) {
+    h2 {
+        font-size: 2rem;
+    }
+
+    .card-title {
+        font-size: 1.2rem;
+    }
+
+    .weather-icon img {
+        width: 50px;
+    }
+}
+
+
