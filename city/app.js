@@ -2,13 +2,14 @@ window.onload = () => {
     // Get the city from the URL query parameters
     const urlParams = new URLSearchParams(window.location.search);
     const city = urlParams.get('city');
+    const apiKey = '1ec71617e4a84c31bba100611243108'; 
 
     if (!city) {
         document.getElementById('weather-info').innerHTML = '<p class="text-dark">No city specified.</p>';
         return;
     }
 
-    const url = `https:://api.weatherapi.com/v1/current.json?key=1ec71617e4a84c31bba100611243108&q=${city}`;
+    const url = `https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${city}`;
 
     fetch(url)
         .then(response => response.json())
