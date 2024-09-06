@@ -11,9 +11,18 @@ window.onload = () => {
 
     const url = `https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${city}`;
 
+    console.log('Fetching weather data from:', url);
+
     fetch(url)
-        .then(response => response.json())
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.json();
+        })
         .then(data => {
+            console.log('Weather data:', data); // Debugging line
+
             const temp = data.current.temp_c;
             const condition = data.current.condition.text;
             const icon = data.current.condition.icon;
@@ -32,26 +41,19 @@ window.onload = () => {
             document.getElementById('current-weather-large').innerHTML = `
                 <div class="col mb-4">
                     <div class="row bg-light p-3">
-                        
                         <div class="col-12 col-md-4 mt-2 text-center">
                             <h1 class="fw-bolder display-5 text-primary">${temp}&deg;C</h1>
                             <p class="fs-5">${date}</p>
                             <h3 class="text-dark fs-4">${time}</h3>
                         </div>
-
-                        
                         <div class="col-12 col-md-1 d-flex justify-content-center align-items-center my-3 my-md-0">
                             <div class="vr bg-dark" style="height: 150px; width: 2px;"></div>
                         </div>
-
-                        
                         <div class="col-12 col-md-3 d-flex flex-column align-items-center text-center my-3 my-md-0">
                             <img src="https:${icon}" alt="${condition}" class="img-fluid"
                                 style="width: 120px; height: 120px;">
                             <p class="mt-2">${condition}</p>
                         </div>
-
-                        
                         <div class="col-12 col-md-4 text-center">
                             <div class="fs-5">Weather</div>
                             <div class="fs-3 text-primary">${city}</div>
@@ -60,50 +62,41 @@ window.onload = () => {
                         </div>
                     </div>
                 </div>
-
-
                 <div class="col mb-4">
                     <div class="bg-light p-3">
                         <div class="row mb-2">
                             <div class="col fs-5 text-start">Feels like</div>
                             <div class="col fs-5 text-end">${feelsLike}&deg;C</div>
                         </div>
-
                         <div class="row mb-2">
                             <div class="col fs-5 text-start">Wind (Kmph)</div>
                             <div class="col fs-5 text-end">${wind}</div>
                         </div>
-
                         <div class="row mb-2">
                             <div class="col fs-5 text-start">Pressure (Inch)</div>
                             <div class="col fs-5 text-end">${pressure}</div>
                         </div>
-
                         <div class="row mb-2">
                             <div class="col fs-5 text-start">Humidity</div>
                             <div class="col fs-5 text-end">${humidity}%</div>
                         </div>
-
                         <div class="row mb-2">
                             <div class="col fs-5 text-start">Gust (Kmph)</div>
                             <div class="col fs-5 text-end">${gust}</div>
                         </div>
                     </div>
                 </div>
-            
             `;
 
             document.getElementById('current-weather-medium').innerHTML = `
                 <div class="col mb-4">
                     <div class="row row-cols-3 bg-light pt-2 pb-2 m-2 align-content-center">
-
                         <div class="col-6 d-flex flex-column align-items-center text-center my-2">
                             <h1 class="fw-bolder display-4 text-primary">${temp}&deg;C</h1>
                             <img src="https:${icon}" alt="${condition}" class="img-fluid"
                                 style="width: 80px; height: 80px;">
                             <p class="mt-2">${condition}</p>
                         </div>
-
                         <div class="col-6 text-center my-auto">
                             <div class="fs-5">Weather</div>
                             <div class="fs-4 text-primary">${city}</div>
@@ -112,50 +105,40 @@ window.onload = () => {
                             <p class="fs-4">${date}</p>
                         </div>
                     </div>
-
-                    
                     <div class="bg-light p-2 m-2 mt-3">
                         <div class="row mb-2">
                             <div class="col fs-5 text-start text-nowrap">Feels like</div>
                             <div class="col fs-5 text-end">${feelsLike}&deg;C</div>
                         </div>
-
                         <div class="row mb-2">
                             <div class="col fs-5 text-start text-nowrap">Wind (Kmph)</div>
                             <div class="col fs-5 text-end">${wind}</div>
                         </div>
-
                         <div class="row mb-2">
                             <div class="col fs-5 text-start text-nowrap">Pressure (Inch)</div>
                             <div class="col fs-5 text-end">${pressure}</div>
                         </div>
-
                         <div class="row mb-2">
                             <div class="col fs-5 text-start text-nowrap">Humidity</div>
                             <div class="col fs-5 text-end">${humidity}%</div>
                         </div>
-
                         <div class="row mb-2">
                             <div class="col fs-5 text-start text-nowrap">Gust (Kmph)</div>
                             <div class="col fs-5 text-end">${gust}</div>
                         </div>
                     </div>
                 </div>
-            
             `;
-
 
             document.getElementById('current-weather-small').innerHTML = `
                 <div class="col mb-4">
                     <div class="row row-cols-2 bg-light pt-2 pb-2 m-2 align-content-center">
-
                         <div class="col-6 d-flex flex-column align-items-center text-center my-2">
                             <h1 class="fw-bolder display-4 text-primary">${temp}&deg;C</h1>
                             <img src="https:${icon}" alt="${condition}" class="img-fluid"
                                 style="width: 80px; height: 80px;">
                             <p class="mt-2">${condition}</p>
                         </div>
-
                         <div class="col-6 text-center my-auto">
                             <div class="fs-6">Weather</div>
                             <div class="fs-5 text-primary">${city}</div>
@@ -164,35 +147,29 @@ window.onload = () => {
                             <p class="fs-5">${date}</p>
                         </div>
                     </div>
-
                     <div class="bg-light p-2 m-2 mt-3">
                         <div class="row mb-2">
                             <div class="col fs-5 text-start text-nowrap">Feels like</div>
                             <div class="col fs-5 text-end">${feelsLike}&deg;C</div>
                         </div>
-
                         <div class="row mb-2">
                             <div class="col fs-5 text-start text-nowrap">Wind (Kmph)</div>
                             <div class="col fs-5 text-end">${wind}</div>
                         </div>
-
                         <div class="row mb-2">
                             <div class="col fs-5 text-start text-nowrap">Pressure (Inch)</div>
                             <div class="col fs-5 text-end">${pressure}</div>
                         </div>
-
                         <div class="row mb-2">
                             <div class="col fs-5 text-start text-nowrap">Humidity</div>
                             <div class="col fs-5 text-end">${humidity}%</div>
                         </div>
-
                         <div class="row mb-2">
                             <div class="col fs-5 text-start text-nowrap">Gust (Kmph)</div>
                             <div class="col fs-5 text-end">${gust}</div>
                         </div>
                     </div>
                 </div>
-            
             `;
         })
         .catch(error => {
@@ -200,7 +177,6 @@ window.onload = () => {
             document.getElementById('weather-info').innerHTML = '<p class="text-dark">Failed to load weather data.</p>';
         });
 };
-
 
 document.getElementById('search-button').addEventListener('click', function () {
     const city = document.getElementById('search-input').value;
@@ -217,7 +193,6 @@ document.getElementById('search-input').addEventListener('keypress', function (e
         document.getElementById('search-button').click();
     }
 });
-
 
 function navigateToWeather(city) {
     window.location.href = `city.html?city=${encodeURIComponent(city)}`;
