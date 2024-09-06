@@ -1,4 +1,6 @@
 window.onload = () => {
+    const apiKey = '1ec71617e4a84c31bba100611243108'; 
+
     const cards = [
         { id: 'colombo-card', city: 'Colombo' },
         { id: 'moscow-card', city: 'Moscow' },
@@ -11,7 +13,7 @@ window.onload = () => {
     function onLoadData(cardInfo) {
         const cardElement = document.getElementById(cardInfo.id);  // Changed variable name to avoid conflict
 
-        const url = `https://api.weatherapi.com/v1/current.json?key=1ec71617e4a84c31bba100611243108&q=${cardInfo.city}`;
+        const url = `https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${cardInfo.city}`;
 
         fetch(url)
             .then(response => response.json())
