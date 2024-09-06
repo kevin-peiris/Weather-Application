@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function () {
+window.onload = () => {
     const cards = [
         { id: 'colombo-card', city: 'Colombo' },
         { id: 'moscow-card', city: 'Moscow' },
@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function () {
     function onLoadData(cardInfo) {
         const cardElement = document.getElementById(cardInfo.id);  // Changed variable name to avoid conflict
 
-        const url = `http://api.weatherapi.com/v1/current.json?key=1ec71617e4a84c31bba100611243108&q=${cardInfo.city}`;
+        const url = `https://api.weatherapi.com/v1/current.json?key=1ec71617e4a84c31bba100611243108&q=${cardInfo.city}`;
 
         fetch(url)
             .then(response => response.json())
@@ -20,19 +20,19 @@ document.addEventListener('DOMContentLoaded', function () {
                 const condition = data.current.condition.text;
                 const icon = data.current.condition.icon;
                 const date = new Date(data.location.localtime).toLocaleDateString('en-US', { month: 'long', day: 'numeric' });
-                const time = new Date(data.location.localtime).toLocaleTimeString('en-US', { hour: 'numeric', minute: 'numeric' });
+                const time = new Date(data.location.localtime).toLocaleTimeString('en-US', { hour: 'numeric', minute: 'numeric'});
 
                 cardElement.innerHTML = `
-                    <div class="card-body pt-2">
-                        <div class="weather-icon">
-                            <img src="https:${icon}" alt="${condition}" class="img-fluid" style="width: 150px; height: 150px;">
-                        </div>
-                        <p class="text-dark">${condition}</p>
-                        <h2 class="text-dark fw-bolder">${temp}°C</h2>
-                        <h3 class="text-dark fs-4">${date}</h3>
-                        <h3 class="text-dark fs-4">${time}</h3>
+                <div class="card-body pt-2">
+                    <div class="weather-icon">
+                        <img src="https:${icon}" alt="${condition}" class="img-fluid" style="width: 150px; height: 150px;">
                     </div>
-                `;
+                    <p class="text-dark">${condition}</p>
+                    <h2 class="text-dark fw-bolder">${temp}°C</h2>
+                    <h3 class="text-dark fs-4">${date}</h3>
+                    <h3 class="text-dark fs-4">${time}</h3>
+                </div>
+            `;
             })
             .catch(error => {
                 console.error('Error fetching weather data:', error);
@@ -43,8 +43,7 @@ document.addEventListener('DOMContentLoaded', function () {
     cards.forEach(card => {
         onLoadData(card);
     });
-});
-
+};
 
 
 document.getElementById('search-button').addEventListener('click', function () {
