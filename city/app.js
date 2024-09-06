@@ -8,7 +8,7 @@ window.onload = () => {
         return;
     }
 
-    const url = `http://api.weatherapi.com/v1/current.json?key=1ec71617e4a84c31bba100611243108&q=${city}`;
+    const url = `https:://api.weatherapi.com/v1/current.json?key=1ec71617e4a84c31bba100611243108&q=${city}`;
 
     fetch(url)
         .then(response => response.json())
