@@ -1,4 +1,4 @@
-window.onload = () => {
+document.addEventListener('DOMContentLoaded', function () {
     const cards = [
         { id: 'colombo-card', city: 'Colombo' },
         { id: 'moscow-card', city: 'Moscow' },
@@ -20,19 +20,19 @@ window.onload = () => {
                 const condition = data.current.condition.text;
                 const icon = data.current.condition.icon;
                 const date = new Date(data.location.localtime).toLocaleDateString('en-US', { month: 'long', day: 'numeric' });
-                const time = new Date(data.location.localtime).toLocaleTimeString('en-US', { hour: 'numeric', minute: 'numeric'});
+                const time = new Date(data.location.localtime).toLocaleTimeString('en-US', { hour: 'numeric', minute: 'numeric' });
 
                 cardElement.innerHTML = `
-                <div class="card-body pt-2">
-                    <div class="weather-icon">
-                        <img src="https:${icon}" alt="${condition}" class="img-fluid" style="width: 150px; height: 150px;">
+                    <div class="card-body pt-2">
+                        <div class="weather-icon">
+                            <img src="https:${icon}" alt="${condition}" class="img-fluid" style="width: 150px; height: 150px;">
+                        </div>
+                        <p class="text-dark">${condition}</p>
+                        <h2 class="text-dark fw-bolder">${temp}°C</h2>
+                        <h3 class="text-dark fs-4">${date}</h3>
+                        <h3 class="text-dark fs-4">${time}</h3>
                     </div>
-                    <p class="text-dark">${condition}</p>
-                    <h2 class="text-dark fw-bolder">${temp}°C</h2>
-                    <h3 class="text-dark fs-4">${date}</h3>
-                    <h3 class="text-dark fs-4">${time}</h3>
-                </div>
-            `;
+                `;
             })
             .catch(error => {
                 console.error('Error fetching weather data:', error);
@@ -43,7 +43,8 @@ window.onload = () => {
     cards.forEach(card => {
         onLoadData(card);
     });
-};
+});
+
 
 
 document.getElementById('search-button').addEventListener('click', function () {
