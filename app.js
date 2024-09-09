@@ -7,7 +7,22 @@ window.onload = () => {
         { id: 'paris-card', city: 'Paris' },
         { id: 'newyork-card', city: 'New York' },
         { id: 'tokyo-card', city: 'Tokyo' },
-        { id: 'sydney-card', city: 'Sydney' }
+        { id: 'sydney-card', city: 'Sydney' },
+        { id: 'dubai-card', city: 'Dubai' },
+        { id: 'singapore-card', city: 'Singapore' },
+        { id: 'losangeles-card', city: 'Los Angeles' },
+        { id: 'bangkok-card', city: 'Bangkok' },
+        { id: 'hongkong-card', city: 'Hong Kong' },
+        { id: 'rome-card', city: 'Rome' },
+        { id: 'barcelona-card', city: 'Barcelona' },
+        { id: 'berlin-card', city: 'Berlin' },
+        { id: 'mexico-card', city: 'Mexico City' },
+        { id: 'cairo-card', city: 'Cairo' },
+        { id: 'lasvegas-card', city: 'Las Vegas' },
+        { id: 'sanfrancisco-card', city: 'San Francisco' },
+        { id: 'miami-card', city: 'Miami' },
+        { id: 'dublin-card', city: 'Dublin' },
+        { id: 'capetown-card', city: 'Cape Town' }
     ];
 
     function onLoadData(cardInfo) {

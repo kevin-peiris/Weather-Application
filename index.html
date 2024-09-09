@@ -29,7 +29,6 @@
         <!-- Search Bar Section -->
         <div class="row justify-content-center mb-5">
             <div class="col-12 col-md-6">
-                <!-- Added IDs to the input and button -->
                 <div class="d-flex">
                     <input id="search-input" class="form-control me-2" type="search" placeholder="Search for a city"
                         aria-label="Search">
@@ -37,6 +36,7 @@
                 </div>
             </div>
         </div>
+
 
         <!-- Weather Cards Carousel -->
         <div id="weatherCarousel" class="carousel slide" data-bs-ride="carousel">
@@ -53,8 +53,9 @@
                                 </div>
                             </div>
 
-                            <div id="colombo-card" class="bg-light text-white p-2 text-center mb-2 h-100" onclick="navigateToWeather('Colombo')">
-                                <!-- Content will be updated here dynamically -->
+                            <div id="colombo-card" class="bg-light text-white p-2 text-center mb-2 h-100"
+                                onclick="navigateToWeather('Colombo')">
+
                             </div>
                         </div>
 
@@ -65,8 +66,11 @@
                                     <h4 class="card-title text-light fw-bold">Moscow</h4>
                                 </div>
                             </div>
-                            <div id="moscow-card" class="bg-light text-white p-2 text-center mb-2 h-100" onclick="navigateToWeather('Moscow')">
-                                <!-- Content will be updated here dynamically -->
+                            <div id="moscow-card" class="bg-light text-white p-2 text-center mb-2 h-100"
+                                onclick="navigateToWeather('Moscow')">
+
+
+
                             </div>
                         </div>
 
@@ -77,8 +81,11 @@
                                     <h4 class="card-title text-light fw-bold">Paris</h4>
                                 </div>
                             </div>
-                            <div id="paris-card" class="bg-light text-white p-2 text-center mb-2 h-100" onclick="navigateToWeather('Paris')">
-                                <!-- Content will be updated here dynamically -->
+                            <div id="paris-card" class="bg-light text-white p-2 text-center mb-2 h-100"
+                                onclick="navigateToWeather('Paris')">
+
+
+
                             </div>
                         </div>
                     </div>
@@ -94,8 +101,11 @@
                                     <h4 class="card-title text-light fw-bold">New York</h4>
                                 </div>
                             </div>
-                            <div id="newyork-card" class="bg-light text-white p-2 text-center mb-2 h-100" onclick="navigateToWeather('New York')">
-                                <!-- Content will be updated here dynamically -->
+                            <div id="newyork-card" class="bg-light text-white p-2 text-center mb-2 h-100"
+                                onclick="navigateToWeather('New York')">
+
+
+
                             </div>
                         </div>
 
@@ -106,8 +116,11 @@
                                     <h4 class="card-title text-light fw-bold">Tokyo</h4>
                                 </div>
                             </div>
-                            <div id="tokyo-card" class="bg-light text-white p-2 text-center mb-2 h-100" onclick="navigateToWeather('Tokyo')">
-                                <!-- Content will be updated here dynamically -->
+                            <div id="tokyo-card" class="bg-light text-white p-2 text-center mb-2 h-100"
+                                onclick="navigateToWeather('Tokyo')">
+
+
+
                             </div>
                         </div>
 
@@ -118,8 +131,267 @@
                                     <h4 class="card-title text-light fw-bold">Sydney</h4>
                                 </div>
                             </div>
-                            <div id="sydney-card" class="bg-light text-white p-2 text-center mb-2 h-100" onclick="navigateToWeather('Sydney')">
-                                <!-- Content will be updated here dynamically -->
+                            <div id="sydney-card" class="bg-light text-white p-2 text-center mb-2 h-100"
+                                onclick="navigateToWeather('Sydney')">
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- Third set of 3 cards -->
+                <div class="carousel-item">
+                    <div class="row justify-content-center p-lg-4 p-md-5 p-3">
+                        <!-- Dubai Card -->
+                        <div class="col-sm-12 col-md-6 col-lg-3 mb-4 mt-5">
+                            <div class="bg-primary text-white p-2 text-center mb-2">
+                                <div class="card-body" onclick="navigateToWeather('Dubai')">
+                                    <h4 class="card-title text-light fw-bold">Dubai</h4>
+                                </div>
+                            </div>
+                            <div id="dubai-card" class="bg-light text-white p-2 text-center mb-2 h-100"
+                                onclick="navigateToWeather('Dubai')">
+
+
+
+                            </div>
+                        </div>
+
+                        <!-- Singapore Card -->
+                        <div class="col-sm-12 col-md-6 col-lg-3 mb-4 mt-5">
+                            <div class="bg-primary text-white p-2 text-center mb-2">
+                                <div class="card-body" onclick="navigateToWeather('Singapore')">
+                                    <h4 class="card-title text-light fw-bold">Singapore</h4>
+                                </div>
+                            </div>
+                            <div id="singapore-card" class="bg-light text-white p-2 text-center mb-2 h-100"
+                                onclick="navigateToWeather('Singapore')">
+
+
+
+                            </div>
+                        </div>
+
+                        <!-- Los Angeles Card -->
+                        <div class="col-sm-12 col-md-6 col-lg-3 mb-4 mt-5">
+                            <div class="bg-primary text-white p-2 text-center mb-2">
+                                <div class="card-body" onclick="navigateToWeather('Los Angeles')">
+                                    <h4 class="card-title text-light fw-bold">Los Angeles</h4>
+                                </div>
+                            </div>
+                            <div id="losangeles-card" class="bg-light text-white p-2 text-center mb-2 h-100"
+                                onclick="navigateToWeather('Los Angeles')">
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- Fourth set of 3 cards -->
+                <div class="carousel-item">
+                    <div class="row justify-content-center p-lg-4 p-md-5 p-3">
+                        <!-- Bangkok Card -->
+                        <div class="col-sm-12 col-md-6 col-lg-3 mb-4 mt-5">
+                            <div class="bg-primary text-white p-2 text-center mb-2">
+                                <div class="card-body" onclick="navigateToWeather('Bangkok')">
+                                    <h4 class="card-title text-light fw-bold">Bangkok</h4>
+                                </div>
+                            </div>
+                            <div id="bangkok-card" class="bg-light text-white p-2 text-center mb-2 h-100"
+                                onclick="navigateToWeather('Bangkok')">
+
+
+
+                            </div>
+                        </div>
+
+                        <!-- Hong Kong Card -->
+                        <div class="col-sm-12 col-md-6 col-lg-3 mb-4 mt-5">
+                            <div class="bg-primary text-white p-2 text-center mb-2">
+                                <div class="card-body" onclick="navigateToWeather('Hong Kong')">
+                                    <h4 class="card-title text-light fw-bold">Hong Kong</h4>
+                                </div>
+                            </div>
+                            <div id="hongkong-card" class="bg-light text-white p-2 text-center mb-2 h-100"
+                                onclick="navigateToWeather('Hong Kong')">
+
+
+
+                            </div>
+                        </div>
+
+                        <!-- Rome Card -->
+                        <div class="col-sm-12 col-md-6 col-lg-3 mb-4 mt-5">
+                            <div class="bg-primary text-white p-2 text-center mb-2">
+                                <div class="card-body" onclick="navigateToWeather('Rome')">
+                                    <h4 class="card-title text-light fw-bold">Rome</h4>
+                                </div>
+                            </div>
+                            <div id="rome-card" class="bg-light text-white p-2 text-center mb-2 h-100"
+                                onclick="navigateToWeather('Rome')">
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <!-- Fifth set of 3 cards -->
+                <div class="carousel-item">
+                    <div class="row justify-content-center p-lg-4 p-md-5 p-3">
+                        <!-- Barcelona Card -->
+                        <div class="col-sm-12 col-md-6 col-lg-3 mb-4 mt-5">
+                            <div class="bg-primary text-white p-2 text-center mb-2">
+                                <div class="card-body" onclick="navigateToWeather('Barcelona')">
+                                    <h4 class="card-title text-light fw-bold">Barcelona</h4>
+                                </div>
+                            </div>
+                            <div id="barcelona-card" class="bg-light text-white p-2 text-center mb-2 h-100"
+                                onclick="navigateToWeather('Barcelona')">
+
+
+
+                            </div>
+                        </div>
+
+                        <!-- Berlin Card -->
+                        <div class="col-sm-12 col-md-6 col-lg-3 mb-4 mt-5">
+                            <div class="bg-primary text-white p-2 text-center mb-2">
+                                <div class="card-body" onclick="navigateToWeather('Berlin')">
+                                    <h4 class="card-title text-light fw-bold">Berlin</h4>
+                                </div>
+                            </div>
+                            <div id="berlin-card" class="bg-light text-white p-2 text-center mb-2 h-100"
+                                onclick="navigateToWeather('Berlin')">
+
+
+
+                            </div>
+                        </div>
+
+                        <!-- Mexico City Card -->
+                        <div class="col-sm-12 col-md-6 col-lg-3 mb-4 mt-5">
+                            <div class="bg-primary text-white p-2 text-center mb-2">
+                                <div class="card-body" onclick="navigateToWeather('Mexico City')">
+                                    <h4 class="card-title text-light fw-bold">Mexico City</h4>
+                                </div>
+                            </div>
+                            <div id="mexico-card" class="bg-light text-white p-2 text-center mb-2 h-100"
+                                onclick="navigateToWeather('Mexico City')">
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- Sixth set of 3 cards -->
+                <div class="carousel-item">
+                    <div class="row justify-content-center p-lg-4 p-md-5 p-3">
+                        <!-- Cairo Card -->
+                        <div class="col-sm-12 col-md-6 col-lg-3 mb-4 mt-5">
+                            <div class="bg-primary text-white p-2 text-center mb-2">
+                                <div class="card-body" onclick="navigateToWeather('Cairo')">
+                                    <h4 class="card-title text-light fw-bold">Cairo</h4>
+                                </div>
+                            </div>
+                            <div id="cairo-card" class="bg-light text-white p-2 text-center mb-2 h-100"
+                                onclick="navigateToWeather('Cairo')">
+
+
+
+                            </div>
+                        </div>
+
+                        <!-- Las Vegas Card -->
+                        <div class="col-sm-12 col-md-6 col-lg-3 mb-4 mt-5">
+                            <div class="bg-primary text-white p-2 text-center mb-2">
+                                <div class="card-body" onclick="navigateToWeather('Las Vegas')">
+                                    <h4 class="card-title text-light fw-bold">Las Vegas</h4>
+                                </div>
+                            </div>
+                            <div id="lasvegas-card" class="bg-light text-white p-2 text-center mb-2 h-100"
+                                onclick="navigateToWeather('Las Vegas')">
+
+
+
+                            </div>
+                        </div>
+
+                        <!-- San Francisco Card -->
+                        <div class="col-sm-12 col-md-6 col-lg-3 mb-4 mt-5">
+                            <div class="bg-primary text-white p-2 text-center mb-2">
+                                <div class="card-body" onclick="navigateToWeather('San Francisco')">
+                                    <h4 class="card-title text-light fw-bold">San Francisco</h4>
+                                </div>
+                            </div>
+                            <div id="sanfrancisco-card" class="bg-light text-white p-2 text-center mb-2 h-100"
+                                onclick="navigateToWeather('San Francisco')">
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- Seventh set of 3 cards -->
+                <div class="carousel-item">
+                    <div class="row justify-content-center p-lg-4 p-md-5 p-3">
+                        <!-- Miami Card -->
+                        <div class="col-sm-12 col-md-6 col-lg-3 mb-4 mt-5">
+                            <div class="bg-primary text-white p-2 text-center mb-2">
+                                <div class="card-body" onclick="navigateToWeather('Miami')">
+                                    <h4 class="card-title text-light fw-bold">Miami</h4>
+                                </div>
+                            </div>
+                            <div id="miami-card" class="bg-light text-white p-2 text-center mb-2 h-100"
+                                onclick="navigateToWeather('Miami')">
+
+
+
+                            </div>
+                        </div>
+
+                        <!-- Dublin Card -->
+                        <div class="col-sm-12 col-md-6 col-lg-3 mb-4 mt-5">
+                            <div class="bg-primary text-white p-2 text-center mb-2">
+                                <div class="card-body" onclick="navigateToWeather('Dublin')">
+                                    <h4 class="card-title text-light fw-bold">Dublin</h4>
+                                </div>
+                            </div>
+                            <div id="dublin-card" class="bg-light text-white p-2 text-center mb-2 h-100"
+                                onclick="navigateToWeather('Dublin')">
+
+
+
+                            </div>
+                        </div>
+
+                        <!-- Cape Town City Card -->
+                        <div class="col-sm-12 col-md-6 col-lg-3 mb-4 mt-5">
+                            <div class="bg-primary text-white p-2 text-center mb-2">
+                                <div class="card-body" onclick="navigateToWeather('Cape Town')">
+                                    <h4 class="card-title text-light fw-bold">Cape Town</h4>
+                                </div>
+                            </div>
+                            <div id="capetown-card" class="bg-light text-white p-2 text-center mb-2 h-100"
+                                onclick="navigateToWeather('Cape Town')">
+
+
+
                             </div>
                         </div>
                     </div>

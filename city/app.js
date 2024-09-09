@@ -15,12 +15,7 @@ window.onload = () => {
     console.log('Fetching weather data from:', url);
 
     fetch(url)
-        .then(res => {
-            if (!res.ok) {
-                throw new Error('Network response was not ok');
-            }
-            return res.json();
-        })
+        .then(res => res.json())
         .then(data => {
             const temp = data.current.temp_c;
             const condition = data.current.condition.text;
