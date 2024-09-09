@@ -2,27 +2,26 @@ window.onload = () => {
     // Get the city from the URL query parameters
     const urlParams = new URLSearchParams(window.location.search);
     const city = urlParams.get('city');
-    const apiKey = '1ec71617e4a84c31bba100611243108'; 
+    const apiKey = '1ec71617e4a84c31bba100611243108';
 
     if (!city) {
         document.getElementById('weather-info').innerHTML = '<p class="text-dark">No city specified.</p>';
         return;
     }
 
-    const url = `https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${city}`;
+    const url = `https://api.weatherapi.com/v1/forecast.json?key=${apiKey}&q=${city}&days=14`;
+
 
     console.log('Fetching weather data from:', url);
 
     fetch(url)
-        .then(response => {
-            if (!response.ok) {
+        .then(res => {
+            if (!res.ok) {
                 throw new Error('Network response was not ok');
             }
-            return response.json();
+            return res.json();
         })
         .then(data => {
-            console.log('Weather data:', data); // Debugging line
-
             const temp = data.current.temp_c;
             const condition = data.current.condition.text;
             const icon = data.current.condition.icon;
@@ -35,9 +34,11 @@ window.onload = () => {
             const gust = data.current.gust_kph;
             const city = data.location.name;
             const country = data.location.country;
-
             const day = new Date(data.location.localtime).toLocaleDateString('en-US', { weekday: 'long' });
 
+            fetchCityPhotos(country); 
+
+            //Current Weather Info
             document.getElementById('current-weather-large').innerHTML = `
                 <div class="col mb-4">
                     <div class="row bg-light p-3">
@@ -171,12 +172,78 @@ window.onload = () => {
                     </div>
                 </div>
             `;
+
+            // Iterate over forecast days
+            const forecast = data.forecast.forecastday;
+            let structure = document.getElementById('weather-forecast');
+
+            let weatherForecast = '';
+
+            forecast.forEach((dayForecast, index) => {
+                const temp = dayForecast.day.avgtemp_c;
+                const condition = dayForecast.day.condition.text;
+                const icon = dayForecast.day.condition.icon;
+                const date = new Date(dayForecast.date).toLocaleDateString('en-US', { month: 'long', day: 'numeric' });
+
+                weatherForecast += `
+                    <div class="col-sm-12 col-md-6 col-lg-3 mb-4 mt-5">
+                        <div class="bg-primary text-white p-2 text-center mb-2">
+                            <div class="card-body">
+                                <h4 class="card-title text-light fw-bold">${date}</h4>
+                            </div>
+                        </div>
+                        <div class="bg-light text-white p-2 text-center mb-2 h-100">
+                            <div class="card-body pt-2">
+                                <div class="weather-icon">
+                                    <img src="https:${icon}" alt="${condition}" class="img-fluid" style="width: 150px; height: 150px;">
+                                </div>
+                                <h4 class="text-dark">${condition}</h4>
+                                <h2 class="text-dark fw-bolder">${temp}°C</h2>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+
+            structure.innerHTML = weatherForecast;
+        })
+};
+function fetchCityPhotos(city) {
+    fetch(`https://api.unsplash.com/search/photos?query=${city}&client_id=FJU1__hja_PtWxVA67jahyUZwa36Pg5Aqqs0IYqjITQ`)
+        .then(res => res.json())
+        .then(data => {
+            const photosContainer = document.getElementById('pic-container');
+            
+            let photos = '';
+            
+            data.results.forEach(photo => {
+                photos += `
+                    <div class='col'>
+                        <div class="card h-100">
+                            <div class="ratio ratio-1x1">
+                                <img src="${photo.urls.small}" class="card-img-top" alt="${photo.alt_description}" style="object-fit: cover;">
+                            </div>
+                            <div class="card-body p-2 text-center">
+                                <p class="card-text">${photo.alt_description || 'No description'}</p>
+                            </div>
+                        </div>
+                    </div>
+                `;
+            });
+
+            photosContainer.innerHTML = photos; // Corrected this line
         })
         .catch(error => {
-            console.error('Error fetching weather data:', error);
-            document.getElementById('weather-info').innerHTML = '<p class="text-dark">Failed to load weather data.</p>';
+            console.error('Error fetching photos:', error);
         });
-};
+}
+
+
+
+
+
+
+
 
 document.getElementById('search-button').addEventListener('click', function () {
     const city = document.getElementById('search-input').value;
