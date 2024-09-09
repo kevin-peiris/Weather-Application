@@ -36,7 +36,7 @@ window.onload = () => {
             const country = data.location.country;
             const day = new Date(data.location.localtime).toLocaleDateString('en-US', { weekday: 'long' });
 
-            fetchCityPhotos(country); 
+            fetchCityPhotos(city+" "+country); 
 
             //Current Weather Info
             document.getElementById('current-weather-large').innerHTML = `
