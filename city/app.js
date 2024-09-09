@@ -36,7 +36,7 @@ window.onload = () => {
             const country = data.location.country;
             const day = new Date(data.location.localtime).toLocaleDateString('en-US', { weekday: 'long' });
 
-            fetchCityPhotos(city+" "+country); 
+            fetchCityPhotos(country);
 
             //Current Weather Info
             document.getElementById('current-weather-large').innerHTML = `
@@ -208,23 +208,31 @@ window.onload = () => {
             structure.innerHTML = weatherForecast;
         })
 };
+
 function fetchCityPhotos(city) {
-    fetch(`https://api.unsplash.com/search/photos?query=${city}&client_id=FJU1__hja_PtWxVA67jahyUZwa36Pg5Aqqs0IYqjITQ`)
+    // Replace with your Pexels API key
+    const apiKey = '7P5SmtNOkafwHCSt93rYbcf56xrTCj4TIEbPID1AxstCS7MONazotsLe';
+
+    fetch(`https://api.pexels.com/v1/search?query=${city}&per_page=8&key=7P5SmtNOkafwHCSt93rYbcf56xrTCj4TIEbPID1AxstCS7MONazotsLe`, {
+        headers: {
+            Authorization: apiKey
+        }
+    })
         .then(res => res.json())
         .then(data => {
             const photosContainer = document.getElementById('pic-container');
-            
+
             let photos = '';
-            
-            data.results.forEach(photo => {
+
+            data.photos.forEach(photo => {
                 photos += `
                     <div class='col'>
                         <div class="card h-100">
                             <div class="ratio ratio-1x1">
-                                <img src="${photo.urls.small}" class="card-img-top" alt="${photo.alt_description}" style="object-fit: cover;">
+                                <img src="${photo.src.large}" class="card-img-top" alt="${photo.alt}" style="object-fit: cover;">
                             </div>
                             <div class="card-body p-2 text-center">
-                                <p class="card-text">${photo.alt_description || 'No description'}</p>
+                                <p class="card-text">${photo.alt}</p>
                             </div>
                         </div>
                     </div>
@@ -237,7 +245,6 @@ function fetchCityPhotos(city) {
             console.error('Error fetching photos:', error);
         });
 }
-
 
 
 
